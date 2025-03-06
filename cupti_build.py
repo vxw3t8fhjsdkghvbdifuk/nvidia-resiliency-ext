@@ -24,8 +24,8 @@ def build(setup_kwargs):
         'nvidia_resiliency_ext.straggler.cupti_module',
         # Sort .cpp files for reproducibility
         sorted(glob.glob('src/nvidia_resiliency_ext/straggler/cupti_src/*.cpp')),
-        include_dirs=['/usr/local/cuda/include'],
-        library_dirs=['/usr/local/cuda/lib64'],
+        include_dirs=['/usr/local/cuda/include', '/usr/local/cuda/extras/CUPTI/include'],
+        library_dirs=['/usr/local/cuda/lib64', '/usr/local/cuda/extras/CUPTI/lib64'],
         # prefer static CUPTI if available
         libraries=(
             ['cupti_static']
